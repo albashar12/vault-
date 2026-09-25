@@ -1,0 +1,252 @@
+:root {
+    --primary: #2AABEE;
+    --bg: #0B1120;
+    --card: #1E293B;
+    --text: #F8FAFC;
+    --subtext: #94A3B8;
+    --border: #334155;
+    --danger: #F43F5E;
+    --success: #10B981;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header { 
+    background: rgba(30, 41, 59, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; 
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+h1 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.container {
+    max-width: 700px;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+    width: 100%;
+    flex: 1;
+}
+
+.card { 
+    background: var(--card);
+    border-radius: 12px;
+    padding: 1.5rem; 
+    margin-bottom: 1.25rem;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3); 
+}
+
+.subtitle {
+    color: var(--subtext);
+    font-size: 0.85rem;
+    margin-bottom: 1.2rem;
+    margin-top: 0.4rem;
+}
+
+.title-center {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--subtext);
+    margin-bottom: 0.4rem;
+}
+
+input[type="text"], input[type="password"] { 
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 1px solid var(--border); 
+    background: #0F172A;
+    color: white;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    border-color: var(--primary);
+}
+
+.btn-primary { 
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: none; 
+    background: var(--primary);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    font-size: 0.95rem;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.btn-success {
+    background: var(--success);
+}
+
+.btn-logout {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+    border-radius: 6px;
+    border: none;
+    background: var(--danger);
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.forgot-toggle {
+    color: var(--primary);
+    font-size: 0.85rem;
+    text-align: center;
+    margin-top: 1rem;
+    cursor: pointer;
+    text-decoration: underline;
+    display: block;
+}
+
+.recovery-box {
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px dashed var(--border);
+    display: none;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.question-box {
+    background: rgba(42, 171, 238, 0.1);
+    border: 1px solid var(--primary);
+    padding: 0.85rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 600;
+    color: #38BDF8;
+    font-size: 0.85rem;
+}
+
+.upload-area {
+    border: 2px dashed var(--primary);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-align: center;
+    background: rgba(42, 171, 238, 0.05);
+    cursor: pointer;
+}
+
+.upload-title {
+    font-size: 0.95rem;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.upload-subtitle {
+    font-size: 0.75rem;
+    color: var(--subtext);
+    margin-top: 0.25rem;
+}
+
+.status-text {
+    font-size: 0.85rem;
+    color: #38BDF8;
+    margin-top: 0.75rem;
+    text-align: center;
+    font-weight: 500;
+}
+
+.vault-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.badge {
+    background: #0284C7;
+    color: white;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.file-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.file-card {
+    background: #0F172A;
+    border-radius: 8px;
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    text-align: center;
+    overflow: hidden;
+}
+
+.file-card img, .file-card video {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 0.4rem;
+}
+
+.file-name {
+    font-size: 0.75rem;
+    color: var(--subtext);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}

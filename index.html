@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AppVault</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Auth Screen -->
+  <div id="authScreen" class="container">
+    <h1>AppVault</h1>
+    <p>Authentication Required</p>
+    
+    <div class="auth-box">
+      <label>❓ Security Question:</label>
+      <p style="margin-bottom:1rem; color:var(--text);">What is the name of your first pet?</p>
+      
+      <input type="password" id="authAnswer" placeholder="Enter answer (encryption key)">
+      <button onclick="authenticate()">Unlock Vault</button>
+      <p id="authError" class="error-msg"></p>
+    </div>
+  </div>
+
+  <!-- Main Vault Screen -->
+  <div id="vaultScreen" class="container" style="display:none;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+      <h1>AppVault</h1>
+      <button class="logout-btn" onclick="logout()">Lock</button>
+    </div>
+
+    <!-- Upload Section -->
+    <div class="upload-section">
+      <h3 class="upload-title">Encrypted Upload (Telegram Masked)</h3>
+      <input type="file" id="fileInput" multiple>
+      <button onclick="uploadFiles()" style="margin-top: 10px;">Encrypt & Upload</button>
+      <div class="progress-bar"><div class="progress-fill" id="uploadProgress"></div></div>
+      <p id="uploadStatus" style="margin-top: 10px; font-size: 0.9rem;"></p>
+    </div>
+
+    <!-- Gallery/Files Section -->
+    <div style="margin-top: 2rem;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h3>My Vault</h3>
+        <span class="badge" onclick="fetchVaultFiles()">Refresh</span>
+      </div>
+      
+      <div class="grid" id="fileGrid">
+        <!-- Files will be dynamically injected here -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
